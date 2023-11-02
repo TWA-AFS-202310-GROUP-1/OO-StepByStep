@@ -9,7 +9,7 @@ namespace OOStepByStep
     public class ClassOfSchool
     {
         private Teacher teacherOfClass;
-        private List<Student> students;
+        private List<Student> students = new List<Student>();
 
         public Teacher TeacherOfClass
         {
@@ -23,22 +23,26 @@ namespace OOStepByStep
             }
         }
 
-        public List<Student> Students
+        public string ShowStudents()
         {
-            get
+            string introductions = string.Empty;
+            foreach (Student student in students)
             {
-                return students;
+                introductions += student.IntroduceOneself();
+                introductions += "\n";
             }
+
+            return introductions;
         }
 
         public Teacher ShowTeacher()
         {
-            return teacherOfClass;
+            return TeacherOfClass;
         }
 
         public void Join(Student newStudent)
         {
-            return;
+            students.Add(newStudent);
         }
     }
 }
