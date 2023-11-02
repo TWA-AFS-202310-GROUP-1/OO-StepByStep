@@ -1,11 +1,18 @@
 ﻿namespace OOStepByStep
 {
     using System;
-    public class Class1
+    using System.Collections.Generic;
+
+
+    public class Person
     {
-        public void Print()
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public virtual string Introduce()
         {
-            Console.WriteLine("console");
+            return $"My name is {Name}. I am {Age} years old.";
         }
     }
+
 }
