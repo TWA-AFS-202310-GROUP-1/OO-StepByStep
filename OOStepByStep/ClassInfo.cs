@@ -20,7 +20,6 @@ namespace OOStepByStep
 
         public string Join(Student newStudent)
         {
-            this.students.Add(newStudent);
             string result = string.Empty;
             if (students != null)
             {
@@ -28,6 +27,8 @@ namespace OOStepByStep
                 {
                     result += student.Introduce() + $" Welcome {newStudent.Name()} join class {classNo}.\n";
                 }
+
+                this.students.Add(newStudent);
             }
 
             if (teacher != null)

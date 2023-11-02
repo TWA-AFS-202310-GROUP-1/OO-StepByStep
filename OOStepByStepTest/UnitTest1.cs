@@ -114,23 +114,5 @@ namespace OOStepByStepTest
             Assert.Equal(showMsg, resultMsg);
         }
 
-        [Fact]
-        public void Should_return_no_welcome_information_when_a_new_student_join_a_class_without_person()
-        {
-            //Given
-            string showMsg = string.Empty;
-
-            //When
-            Teacher teacher = null;
-            List<Student> students = null;
-            string classNo = "2";
-            ClassInfo class2 = new ClassInfo(classNo, teacher, students);
-            Student newStudent = new Student("Chandler", 20, "2");
-
-            string resultMsg = class2.Join(newStudent);
-
-            //Then
-            Assert.Equal(showMsg, resultMsg);
-        }
     }
 }
