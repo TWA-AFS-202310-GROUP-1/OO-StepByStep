@@ -9,13 +9,26 @@ namespace OOStepByStep
     public class Student : Person
     {
         private string identity = "student";
+        private string classNo = string.Empty;
         public Student(string name, int age) : base(name, age)
         {
         }
 
+        public Student(string name, int age, string classNo) : base(name, age)
+        {
+            this.classNo = classNo;
+        }
+
         public override string Introduce()
         {
-            return base.Introduce() + $" I am a {identity}.";
+            if (this.classNo == string.Empty)
+            {
+                return base.Introduce() + $" I am a {identity}.";
+            }
+            else
+            {
+                return base.Introduce() + $" I am a {identity} of class {classNo}.";
+            }
         }
     }
 }
