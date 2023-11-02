@@ -3,18 +3,19 @@
     using System;
     public class Person
     {
-        private string name;
         private int age;
 
         public Person(string name, int age)
         {
-            this.name = name;
+            this.Name = name;
             this.age = age;
         }
 
+        public string Name { get; set; }
+
         public virtual string SelfIntroduce()
         {
-            return $"My name is {this.name}. I am {this.age} years old.";
+            return $"My name is {this.Name}. I am {this.age} years old.";
         }
     }
 }
