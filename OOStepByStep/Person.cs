@@ -10,9 +10,19 @@ namespace OOStepByStep
     {
         private string name = "Tom";
         private int age = 21;
-        public string Speak()
+        public Person()
         {
-            return "My name is " + name + ". I am " + age + " years old";
+        }
+
+        public Person(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+
+        public virtual string Speak()
+        {
+            return $"My name is {name}. I am {age} years old.";
         }
     }
 }
