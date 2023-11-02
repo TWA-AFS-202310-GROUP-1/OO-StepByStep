@@ -10,6 +10,12 @@ namespace OOStepByStep
     {
         private Teacher teacherOfClass;
         private List<Student> students = new List<Student>();
+        private int classId;
+
+        public ClassOfSchool(int id)
+        {
+            classId = id;
+        }
 
         public Teacher TeacherOfClass
         {
@@ -42,6 +48,7 @@ namespace OOStepByStep
 
         public void Join(Student newStudent)
         {
+            newStudent.ClassId = classId;
             students.Add(newStudent);
         }
     }

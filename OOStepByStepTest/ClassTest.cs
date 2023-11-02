@@ -14,7 +14,7 @@ namespace OOStepByStepTest
         public void Should_return_teacher_of_the_class_when_ShowTeacher_given_a_ClassOfSchool()
         {
             // given
-            ClassOfSchool class2 = new ClassOfSchool();
+            ClassOfSchool class2 = new ClassOfSchool(2);
             Teacher teacher = new Teacher("Bob", 16);
             teacher.ClassId = 2;
             class2.TeacherOfClass = teacher;
@@ -30,16 +30,20 @@ namespace OOStepByStepTest
         public void Should_return_students_of_the_class_when_ShowStudent_given_a_ClassOfSchool()
         {
             // given
-            ClassOfSchool class2 = new ClassOfSchool();
-            Student newStudent = new Student("Kevin", 28);
-            newStudent.ClassId = 2;
-            class2.Join(newStudent);
+            ClassOfSchool class2 = new ClassOfSchool(2);
+
+            Student newStudent1 = new Student("Kevin", 28);
+            class2.Join(newStudent1);
+
+            Student newStudent2 = new Student("Bob", 27);
+            class2.Join(newStudent2);
 
             // when
             string result = class2.ShowStudents();
 
             // then
-            Assert.Equal("My name is Kevin. I'm 28 years old. I'm a student of class 2.\n", result);
+            Assert.Equal("My name is Kevin. I'm 28 years old. I'm a student of class 2.\n" +
+                "My name is Bob. I'm 27 years old. I'm a student of class 2.\n", result);
         }
     }
 }
