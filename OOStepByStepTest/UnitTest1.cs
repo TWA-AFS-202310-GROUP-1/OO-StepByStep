@@ -1,6 +1,7 @@
 namespace OOStepByStepTest
 {
     using OOStepByStep;
+    using System.Collections.Generic;
     using Xunit;
 
     public class UnitTest1
@@ -82,6 +83,51 @@ namespace OOStepByStepTest
             //When
             Teacher teacher = new Teacher(name, age, classNo);
             string resultMsg = teacher.Introduce();
+
+            //Then
+            Assert.Equal(showMsg, resultMsg);
+        }
+
+        [Fact]
+        public void Should_return_welcome_information_when_a_new_student_join_the_class()
+        {
+            //Given
+            string showMsg = "My name is Rachel. I am 17 years old. I am a student of class 2. Welcome Chandler join class 2.\nMy name is Monica. I am 18 years old. I am a student of class 2. Welcome Chandler join class 2.\nMy name is Joey. I am 19 years old. I am a student of class 2. Welcome Chandler join class 2.\nMy name is Pheobe. I am 20 years old. I am a student of class 2. Welcome Chandler join class 2.\nMy name is Ross. I am 21 years old. I am a student of class 2. Welcome Chandler join class 2.\nMy name is Amy. I am 30 years old. I am a teacher of class 2. Welcome Chandler join class 2.";
+
+            //When
+            Teacher teacher = new Teacher("Amy", 30, "2");
+            List<Student> students = new List<Student>(/*new Student[]*/)
+            {
+                new Student("Rachel", 17, "2"),
+                new Student("Monica", 18, "2"),
+                new Student("Joey", 19, "2"),
+                new Student("Pheobe", 20, "2"),
+                new Student("Ross", 21, "2"),
+            };
+            string classNo = "2";
+            ClassInfo class2 = new ClassInfo(classNo, teacher, students);
+            Student newStudent = new Student("Chandler", 20, "2");
+
+            string resultMsg = class2.Join(newStudent);
+
+            //Then
+            Assert.Equal(showMsg, resultMsg);
+        }
+
+        [Fact]
+        public void Should_return_no_welcome_information_when_a_new_student_join_a_class_without_person()
+        {
+            //Given
+            string showMsg = string.Empty;
+
+            //When
+            Teacher teacher = null;
+            List<Student> students = null;
+            string classNo = "2";
+            ClassInfo class2 = new ClassInfo(classNo, teacher, students);
+            Student newStudent = new Student("Chandler", 20, "2");
+
+            string resultMsg = class2.Join(newStudent);
 
             //Then
             Assert.Equal(showMsg, resultMsg);

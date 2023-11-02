@@ -9,7 +9,7 @@ namespace OOStepByStep
     public class Teacher : Person
     {
         private string identity = "teacher";
-        private string classNo = string.Empty;
+        private string classNo = null;
         public Teacher(string name, int age) : base(name, age)
         {
         }
@@ -21,7 +21,7 @@ namespace OOStepByStep
 
         public override string Introduce()
         {
-            if (this.classNo == string.Empty)
+            if (this.classNo == null)
             {
                 return base.Introduce() + $" I am a {identity}.";
             }
