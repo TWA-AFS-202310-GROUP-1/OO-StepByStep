@@ -8,14 +8,19 @@ namespace OOStepByStep
 {
     public class Student : Person
     {
-        private int classinfo;
+        private int classInfo;
         public Student() : base("Tom", 18)
         {
         }
 
         public Student(int classInfo) : base("Tom", 18)
         {
-            this.classinfo = classInfo;
+            this.classInfo = classInfo;
+        }
+
+        public int GiveClassInfo()
+        {
+            return classInfo;
         }
 
         public override string Speak()

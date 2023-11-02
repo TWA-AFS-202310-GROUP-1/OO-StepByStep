@@ -18,6 +18,11 @@ namespace OOStepByStep
             this.classInfo = classInfo;
         }
 
+        public int GiveClassInfo()
+        {
+            return classInfo;
+        }
+
         public override string Speak()
         {
              return base.Speak() + " I am a teacher.";

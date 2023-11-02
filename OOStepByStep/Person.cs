@@ -20,6 +20,11 @@ namespace OOStepByStep
             this.age = age;
         }
 
+        public string GiveName()
+        {
+            return name;
+        }
+
         public virtual string Speak()
         {
             return $"My name is {name}. I am {age} years old.";
