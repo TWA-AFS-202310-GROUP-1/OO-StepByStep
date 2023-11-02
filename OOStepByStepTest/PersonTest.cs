@@ -37,5 +37,19 @@ namespace OOStepByStepTest
             // then
             Assert.Equal("My name is Kevin. I'm 28 years old. I'm a student.", result);
         }
+
+        [Fact]
+        public void Should_return_correct_introduction_sentence_when_introduce_oneself_given_a_teacher()
+        {
+            // given
+
+            Teacher teacher = new Teacher("Kevin", 28);
+
+            // when
+            string result = teacher.IntroduceOneself();
+
+            // then
+            Assert.Equal("My name is Kevin. I'm 28 years old. I'm a teacher.", result);
+        }
     }
 }
