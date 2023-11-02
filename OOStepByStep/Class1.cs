@@ -1,11 +1,26 @@
 ﻿namespace OOStepByStep
 {
     using System;
-    public class Class1
+    using System.Xml.Linq;
+
+    public class Person
     {
-        public void Print()
+        private string name;
+        private int age;
+
+        public Person()
         {
-            Console.WriteLine("console");
+        }
+
+        public Person(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+
+        public string Introduce()
+        {
+            return $"My name is {name}. I am {age} years old.";
         }
     }
 }
