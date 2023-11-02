@@ -18,5 +18,10 @@
         {
             return $"My name is {name}. I'm {age} years old.";
         }
+
+        public string GetName()
+        {
+            return name ;
+        }
     }
 }

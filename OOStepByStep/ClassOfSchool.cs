@@ -41,9 +41,9 @@ namespace OOStepByStep
             return introductions;
         }
 
-        public Teacher ShowTeacher()
+        public string ShowTeacher()
         {
-            return TeacherOfClass;
+            return TeacherOfClass.IntroduceOneself();
         }
 
         public void Join(Student newStudent)
@@ -52,18 +52,18 @@ namespace OOStepByStep
             students.Add(newStudent);
         }
 
-        public string WelcomeNewStudent(Student newStudent, string name)
+        public string WelcomeNewStudent(Student newStudent)
         {
             string result = string.Empty;
 
             result += teacherOfClass.IntroduceOneself();
-            result += $" Welcome {name} join class {classId}.";
+            result += $" Welcome {newStudent.GetName()} join class {classId}.";
             result += "\n";
 
             foreach (Student student in students)
             {
                 result += student.IntroduceOneself();
-                result += $" Welcome {name} join class {classId}.";
+                result += $" Welcome {newStudent.GetName()} join class {classId}.";
                 result += "\n";
             }
 
