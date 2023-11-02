@@ -20,6 +20,7 @@ namespace OOStepByStep
 
         public string Join(Student newStudent)
         {
+            this.students.Add(newStudent);
             string result = string.Empty;
             if (students != null)
             {
