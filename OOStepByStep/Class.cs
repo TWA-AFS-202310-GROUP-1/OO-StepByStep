@@ -17,10 +17,20 @@ namespace OOStepByStep
             this.classInfo = classInfo;
         }
 
-        public string WelcomeNewStudent(Student allstudent)
+        public string WelcomeStudent(Student allstudent)
         {
             string finalmsg = teacher.Speak(classInfo);
             finalmsg += $" Welcome {allstudent.GiveName()} join class {allstudent.GiveClassInfo()}.";
+            return finalmsg;
+        }
+
+        public string WelcomeNewStudent(Student allstudent, Student newstudent)
+        {
+            students.Add(allstudent);
+            students.Add(newstudent);
+
+            string finalmsg = students[0].Speak(classInfo);
+            finalmsg += $" Welcome {students[1].GiveName()} join class {students[1].GiveClassInfo()}.";
             return finalmsg;
         }
     }
