@@ -51,5 +51,25 @@ namespace OOStepByStep
             newStudent.ClassId = classId;
             students.Add(newStudent);
         }
+
+        public string WelcomeNewStudent(Student newStudent, string name)
+        {
+            string result = string.Empty;
+
+            result += teacherOfClass.IntroduceOneself();
+            result += $" Welcome {name} join class {classId}.";
+            result += "\n";
+
+            foreach (Student student in students)
+            {
+                result += student.IntroduceOneself();
+                result += $" Welcome {name} join class {classId}.";
+                result += "\n";
+            }
+
+            Join(newStudent);
+
+            return result;
+        }
     }
 }
