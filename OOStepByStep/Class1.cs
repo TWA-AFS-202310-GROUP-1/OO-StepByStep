@@ -6,37 +6,58 @@
 
     public class Person
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
+        private string name { get; set; }
+        private int age { get; set; }
+
+        public Person(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
 
         public virtual string Introduce()
         {
-            return $"My name is {Name}. I am {Age} years old.";
+            return $"My name is {name}. I am {age} years old.";
         }
     }
 
     public class Student : Person
     {
-        private Clazz clazz {  get; set; }
+        private int? classNumber;
+
+        public Student(string name, int age, int? classNumber = null)
+            : base(name, age)
+        {
+            this.classNumber = classNumber;
+        }
+
         public override string Introduce()
         {
-            return base.Introduce() + " I am a student";
+            string introduction = base.Introduce();
+            introduction += classNumber.HasValue ? $" I am a student of class {classNumber.Value}." : " I am a student.";
+            return introduction;
         }
+
         
     }
 
     public class Teacher : Person
     {
-        private Clazz clazz { get; set; }
+        private int? classNumber;
+
+        public Teacher(string name, int age, int? classNumber = null)
+            : base(name, age)
+        {
+            this.classNumber = classNumber;
+        }
+
         public override string Introduce()
         {
-            return base.Introduce() + " I am a teacher";
+            string introduction = base.Introduce();
+            introduction += classNumber.HasValue ? $" I am a teacher of class {classNumber.Value}." : " I am a teacher.";
+            return introduction;
         }
     }
 
-    public class Clazz
-    {
-        private int clazzNumber { get; set; }
-    }
 
 }
