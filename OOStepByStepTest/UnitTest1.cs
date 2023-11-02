@@ -28,5 +28,22 @@ namespace OOStepByStepTest
             string studentMsg = student.Speak();
             Assert.Equal("My name is Tom. I am 18 years old. I am a student.", studentMsg);
         }
+
+        [Fact]
+        public void Should_return_teacher_introduction_include_classInfo_when_given_teacher()
+        {
+            Teacher teacher = new Teacher();
+
+            string teacherMsg = teacher.Speak(2);
+            Assert.Equal("My name is Amy. I am 30 years old. I am a teacher of class 2.", teacherMsg);
+        }
+
+        [Fact]
+        public void Should_return_student_introduction_include_classInfo_when_given_student()
+        {
+            Student student = new Student();
+            string studentMsg = student.Speak(2);
+            Assert.Equal("My name is Tom. I am 18 years old. I am a student of class 2.", studentMsg);
+        }
     }
 }
