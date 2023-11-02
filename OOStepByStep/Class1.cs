@@ -17,6 +17,7 @@
 
     public class Student : Person
     {
+        private Clazz clazz {  get; set; }
         public override string Introduce()
         {
             return base.Introduce() + " I am a student";
@@ -26,10 +27,16 @@
 
     public class Teacher : Person
     {
+        private Clazz clazz { get; set; }
         public override string Introduce()
         {
             return base.Introduce() + " I am a teacher";
         }
+    }
+
+    public class Clazz
+    {
+        private int clazzNumber { get; set; }
     }
 
 }
