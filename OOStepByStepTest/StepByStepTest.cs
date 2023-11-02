@@ -24,5 +24,15 @@ namespace OOStepByStepTest
 
             Assert.Equal(msg, expectMsg);
         }
+
+        [Theory]
+        [InlineData("Amy", 30, "My name is Amy. I am 30 years old. I am a teacher")]
+        public void Should_introduce_teacher_when_self_introduce_given_teacher(string personName, int age, string expectMsg)
+        {
+            Teacher teacher = new Teacher(personName, age);
+            string msg = teacher.SelfIntroduce();
+
+            Assert.Equal(msg, expectMsg);
+        }
     }
 }
