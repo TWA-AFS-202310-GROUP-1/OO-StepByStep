@@ -30,12 +30,16 @@ namespace OOStepByStepTest
             // given
 
             Student student = new Student("Kevin", 28);
+            Student student2 = new Student("Bob", 16);
+            student2.ClassId = 2;
 
             // when
             string result = student.IntroduceOneself();
+            string result2 = student2.IntroduceOneself();
 
             // then
             Assert.Equal("My name is Kevin. I'm 28 years old. I'm a student.", result);
+            Assert.Equal("My name is Bob. I'm 16 years old. I'm a student of class 2.", result2);
         }
 
         [Fact]
@@ -44,12 +48,16 @@ namespace OOStepByStepTest
             // given
 
             Teacher teacher = new Teacher("Kevin", 28);
+            Teacher teacher2 = new Teacher("Bob", 16);
+            teacher2.ClassId = 2;
 
             // when
             string result = teacher.IntroduceOneself();
+            string result2 = teacher2.IntroduceOneself();
 
             // then
             Assert.Equal("My name is Kevin. I'm 28 years old. I'm a teacher.", result);
+            Assert.Equal("My name is Bob. I'm 16 years old. I'm a teacher of class 2.", result2);
         }
     }
 }
